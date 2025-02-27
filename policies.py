@@ -1,6 +1,6 @@
 # Author: Jimmy Wu
 # Date: October 2024
-
+# policies.py
 import logging
 import math
 import socket
@@ -16,10 +16,10 @@ from scipy.spatial.transform import Rotation as R
 from constants import POLICY_SERVER_HOST, POLICY_SERVER_PORT, POLICY_IMAGE_WIDTH, POLICY_IMAGE_HEIGHT
 
 class Policy:
-    def reset(self):
+    def reset(self): # 重置策略状态
         raise NotImplementedError
 
-    def step(self, obs):
+    def step(self, obs): # 根据观测生成动作
         raise NotImplementedError
 
 class WebServer:
