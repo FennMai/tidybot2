@@ -1,3 +1,6 @@
+"""
+可视化 teleop连接成功后的陀螺仪姿态
+"""
 import mujoco
 import mujoco.viewer
 import numpy as np
@@ -6,6 +9,7 @@ from policies import TeleopPolicy
 policy = TeleopPolicy()
 policy.reset()  # Wait for user to press "Start episode"
 
+# 定义一个mujoco场景
 xml = """
 <mujoco>
   <asset>
@@ -15,16 +19,17 @@ xml = """
   </asset>
   <worldbody>
     <light directional="true"/>
-    <geom name="floor" size="0 0 .05" type="plane" material="groundplane"/>
+    <geom name="floor" size="0 0 .05" type="plane" material="groundplane"/> 
     <body name="target" pos="0 0 .5" mocap="true">
       <geom type="box" size=".05 .05 .05" rgba=".6 .3 .3 .5"/>
     </body>
   </worldbody>
 </mujoco>
 """
-m = mujoco.MjModel.from_xml_string(xml)
-d = mujoco.MjData(m)
-mocap_id = m.body('target').mocapid[0]
+m = mujoco.MjModel.from_xml_string(xml)  # 从XML字符串创建模型
+d = mujoco.MjData(m)                     # 创建对应的仿真数据
+mocap_id = m.body('target').mocapid[0]   # 获取目标体的mocap ID
+
 with mujoco.viewer.launch_passive(m, d, show_left_ui=False, show_right_ui=False) as viewer:
     viewer.opt.frame = mujoco.mjtFrame.mjFRAME_BODY
     while viewer.is_running():

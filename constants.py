@@ -18,7 +18,7 @@ BASE_RPC_HOST = 'localhost'
 BASE_RPC_PORT = 50000
 ARM_RPC_HOST = 'localhost'
 ARM_RPC_PORT = 50001
-RPC_AUTHKEY = b'secret password'
+RPC_AUTHKEY = b'secret password'    
 
 # Cameras
 BASE_CAMERA_SERIAL = 'TODO'

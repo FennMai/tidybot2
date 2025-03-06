@@ -28,6 +28,9 @@ Written by Roland McGrath and Ulrich Drepper.
 
 I give up the conda, using the venv
 
+```
+
+```
 
 ### Test
 
@@ -55,3 +58,8 @@ QObject::moveToThread: Current thread (0x213ac90) is not the object's thread (0x
 Cannot move to target thread (0x213ac90)
 
 ```
+
+2025-03-03
+
+`teleop_test.py` 陀螺仪与手机的映射
+
